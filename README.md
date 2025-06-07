@@ -8,7 +8,7 @@ A basic app for uploading and viewing picture files.
 
 ## Rationale
 
-The Procreate gallery is gone and I miss it for displaying my artwork. 
+The Procreate gallery is gone!
 
 ## User Story
 
@@ -24,7 +24,7 @@ When I log in, I see my personal gallery. I then have the option to do the follo
     <br>&emsp; Optional: responsive design.
 
 TODO:
-Users + Passwords
-Login/Logout Page
-Image upload
-Carousel/Gallery format
+<br>Users + Passwords
+<br>Login/Logout Page
+<br>Image upload
+<br>Carousel/Gallery format
