@@ -1,17 +1,16 @@
 
 
-
 <%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
 <%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
 
-<footer class= "mx-auto w-1/2 h-1/2">
+<footer>
   <%= form_with url: session_path do |form| %>
   <%= form.email_field :email_address, required: true, autofocus: true, 
   autocomplete: "username", placeholder: "Email address", 
-  value: params[:email_address], maxlength: 30 %><br>
+  value: params[:email_address], maxlength: 30, class: "text-center" %><br>
   <%= form.password_field :password, 
   required: true, autocomplete: "current-password", 
-  placeholder: "Password", maxlength: 30 %>
+  placeholder: "Password", maxlength: 30, class: "text-center" %>
   <div class= "font-bold">
     <%= form.submit "Sign in" %>
     <% end %><br>
