@@ -7,7 +7,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should get show" do
     # Log in the user
-    post session_path, params: { email_address: @User1@example.com, password: 'User1' }
+    post session_path, params: { email_address: @user.user1@example.com, password: 'User1' }
     get user_url(@user)
     assert_response :success
   end
