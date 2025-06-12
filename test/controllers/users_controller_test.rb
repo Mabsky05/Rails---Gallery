@@ -5,7 +5,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     # get users_show_url
     post session_path, params: { email_address: "User1@example.com", password: "User1" }
     user = User.find_by(email_address: "User1@example.com")
-    get users_show_url(user)
+    get user_url(user)
     assert_response :success
   end
 end
