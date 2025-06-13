@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "pics/index"
   get "users/show"
   get "home/index"
   resources :users, only: [ :show ]

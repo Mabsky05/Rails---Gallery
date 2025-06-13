@@ -24,8 +24,10 @@ When I log in, I see my personal gallery. I then have the option to do the follo
     <br>&emsp; Optional: responsive design.
 
 TODO:
-<br>Users + Passwords
-<br>Login/Logout Page
+<br>Users + Passwords (OK)
+<br>Login/Logout Page (OK)
+<br>Generate and refine Pictures model
+<br>Associate Pictures with User
 <br>Image upload
 <br>Carousel/Gallery format
 
