@@ -14,3 +14,10 @@ User.create!(
         { email_address: "user2@example.com", password: "User2" }
     ]
 )
+
+pic = Pic.create!(name: "Sample_Pic_1")
+pic.featured_image.attach(
+    io: File.open(Rails.root.join ("app/assets/images/ninh binh mult.png")),
+    filename: "Sample_Pic_1.png",
+    content_type: "image/png"
+)
