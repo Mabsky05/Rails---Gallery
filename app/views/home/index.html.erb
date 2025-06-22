@@ -1,12 +1,11 @@
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<div class= "flex-col mx-auto w-1/2 text-center"> 
-    <h1 class="font-bold text-red-500 h-48"><%= Gallery %></h1>
-    <div class ="h-24 w-24 flex-auto overflow-hidden object-contain">
-    <% # Get all jpg and png images from app/assets/images %>
-    <% images = Dir[Rails.root.join("app/assets/images/*.{jpg,png,jpeg,gif}")].map { |f| File.basename(f) } %>
-    <% random_image = images.sample %>
-    <%= image_tag random_image if random_image %>
-    </div>
-    <div><%= render "sessions/new"%></div>
+<% # Get all jpg and png images from app/assets/images %>
+<% images = Dir[Rails.root.join("app/assets/images/*.{jpg,png,jpeg,gif}")].map { |f| File.basename(f) } %>
+<% random_image = images.sample %>
+
+<div class= "flex-col object-center align-middle justify-center"> 
+<h1 class="font-bold text-red-500 text-center"><%= Gallery %></h1>
+<div class="flex items-center justify-center"><%= image_tag random_image, class: "h-96 overflow-clip m-16" %></div>
+<div class="text-center"><%= render "sessions/new"%></div>
 </div>
+
 

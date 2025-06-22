@@ -12,6 +12,7 @@ class PicsController < ApplicationController
   end
 
   def new
+    @pic = Pic.new
   end
 
   def delete

@@ -1,5 +1,11 @@
 <div>
   Welcome <%= @user.email_address %>
-  <p> insert personal gallery here <p>
+  <div>insert personal gallery here</div>
+  
+  <%= link_to "Add new Pic", new_pic_path, class: "text-red-500" %>
+  
+  <div>delete a new pic here</div>
+  <div>replace a new pic here</div>
+
   <%= button_to "Log out", session_path, method: :delete if authenticated? %>
 </div>
