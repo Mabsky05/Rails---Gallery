@@ -17,4 +17,9 @@ class PicsController < ApplicationController
 
   def delete
   end
+
+  private
+    def pic_params
+      params.expect(pic: [ :name, :description, :featured_image ])
+    end
 end

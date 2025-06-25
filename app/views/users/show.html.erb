@@ -3,9 +3,19 @@
   <div>insert personal gallery here</div>
   
   <%= link_to "Add new Pic", new_pic_path, class: "text-red-500" %>
-  
+    <%= form_with model: @pic do |form| %>
+      <div>
+        <%= form.label :featured_image, style: "display: block" %>
+        <%= form.file_field :featured_image, accept: "image/*" %>
+      </div>
+      <div>
+        <%= form.submit %>
+    <% end %>
+
+<%# <%= link_to "Delete Pic", %> %>
+<%#<%= link_to "Replace Pic", %> %>
   <div>delete a new pic here</div>
-  <div>replace a new pic here</div>
+  <div>update a new pic here</div>
 
   <%= button_to "Log out", session_path, method: :delete if authenticated? %>
 </div>
