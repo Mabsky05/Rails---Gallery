@@ -15,6 +15,15 @@ class PicsController < ApplicationController
     @pic = Pic.new
   end
 
+  def create
+    @pic = Pic.new(pic_params)
+    if @pic.save
+      redirect_to @pic
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   def delete
   end
 
