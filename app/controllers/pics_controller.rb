@@ -24,7 +24,9 @@ class PicsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    @pic = Pic.destroy(params[:id])
+    redirect_to pics_path
   end
 
   private
