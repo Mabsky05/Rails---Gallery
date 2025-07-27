@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-User.create!(
+users = User.create!(
     [
         { email_address: "user1@example.com", password: "User1" },
         { email_address: "user2@example.com", password: "User2" },
@@ -16,7 +16,8 @@ User.create!(
     ]
 )
 
-pic1 = Pic.create!(name: "Sample_Pic_1")
+
+pic1 = Pic.create!(name: "Sample_Pic_1", user_id: users[0].id)
 pic1.featured_image.attach(
     io: File.open(Rails.root.join("app/assets/images/ninh binh mult.png")),
     filename: "Sample_Pic_1.png",
