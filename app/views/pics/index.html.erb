@@ -8,8 +8,6 @@
     <%= link_to pic.name, pic %>
   </div>
 <% end %>
-
-
-<%# <%= link_to "Back", user_path(session[:id]) if session[:id].present? %> %>
-<%= link_to "Back", pics_path %>
+<p>session[:user_id]: <%= session[:user_id].inspect %></p>
+<%= link_to "Back", user_path(session[:user_id]) if session[:user_id].present? %> 
 
