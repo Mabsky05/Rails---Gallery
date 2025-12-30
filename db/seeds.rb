@@ -1,25 +1,36 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# Seed Users
+# User.destroy_all
 
-users = User.create!(
-    [
-        { email_address: "user1@example.com", password: "User1" },
-        { email_address: "user2@example.com", password: "User2" },
-        { email_address: "user3@example.com", password: "User3" }
-    ]
-)
+User.create!([ {
+    email_address: "User1@example.com",
+    password: "User1" }, {
+    email_address: "User2@example.com",
+    password: "User2" }, {
+    email_address: "User3@example.com",
+    password: "User3"
+    }
+])
 
 
-pic1 = Pic.create!(name: "Sample_Pic_1", user_id: users[0].id)
-pic1.featured_image.attach(
-    io: File.open(Rails.root.join("app/assets/images/ninh binh mult.png")),
-    filename: "Sample_Pic_1.png",
-    content_type: "image/png"
-)
+
+User.find(1).pics.attach(io: File.open(Rails.root.join("app/assets/images/ninh_binh_mult.png")), filename: "ninh_binh_mult.png")
+# User2 = User.create!(
+#     email_address: "user1@example.com",
+#     password: "User2"
+# )
+
+# User3 = User.create!(
+#     email_address: "user1@example.com",
+#     password: "User3"
+# )
+
+# Seed Photo
+# User1 = User.find(1)
+# pic1 = Pic.create!(name: "Sample_Pic_1", user_id: User.ids[0])
+# pic1.featured_image.attach(
+#     io: File.open(Rails.root.join("app/assets/images/ninh_binh_mult.png")),
+#     filename: "Sample_Pic_1.png",
+#     content_type: "image/png"
+# )
+
+# Attach Photo
