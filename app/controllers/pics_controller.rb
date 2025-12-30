@@ -18,10 +18,14 @@ class PicsController < ApplicationController
   def create
     @pic = Pic.new(pic_params)
     if @pic.save
-      redirect_to @pic
+      redirect_to @user_path, notice: "uploaded pic"
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @pic = Pic.find(params[:id])
   end
 
   def destroy

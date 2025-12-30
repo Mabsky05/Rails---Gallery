@@ -3,10 +3,16 @@
   <p>Find me in app/views/pics/index.html.erb</p>
 </div>
 
+<h3>User pics</h3>
+<% @user.pics.each do |image| %>
+  <%= image_tag (image) %>
+<% end %>
+
 <% @pics.each do |pic| %>
   <div>
     <%= link_to pic.name, pic %>
   </div>
+  
 <% end %>
 <p>session[:user_id]: <%= session[:user_id].inspect %></p>
 <%= link_to "Back", user_path(session[:user_id]) if session[:user_id].present? %> 
