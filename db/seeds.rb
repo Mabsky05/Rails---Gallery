@@ -3,7 +3,7 @@
 
 User.create!([ {
     email_address: "User1@example.com",
-    password: "User1" }, {
+    password: "User1", pics: "Pic1" }, {
     email_address: "User2@example.com",
     password: "User2" }, {
     email_address: "User3@example.com",
@@ -13,7 +13,7 @@ User.create!([ {
 
 
 
-User.find(1).pics.attach(io: File.open(Rails.root.join("app/assets/images/ninh_binh_mult.png")), filename: "ninh_binh_mult.png")
+# User.find(1).pics.attach(io: File.open(Rails.root.join("app/assets/images/ninh_binh_mult.png")), filename: "ninh_binh_mult.png")
 # User2 = User.create!(
 #     email_address: "user1@example.com",
 #     password: "User2"
