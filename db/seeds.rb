@@ -3,7 +3,7 @@
 
 User.create!([ {
     email_address: "User1@example.com",
-    password: "User1", pics: "Pic1" }, {
+    password: "User1" }, {
     email_address: "User2@example.com",
     password: "User2" }, {
     email_address: "User3@example.com",

@@ -3,15 +3,14 @@
 Welcome <%= @user.email_address %>  
 <div><%= link_to "Picture Gallery", user_path, class: "text-red-500" %></div>
 
-<% @user.pics.each do |image| %>
+<% @user.each do |image| %>
 <%= image_tag (image) %>
 <% end %>
 
-<%= form_with model: @user do |user_form| %>
-  <%= fields_for :pic, @user.pics do |pic_form|%>
-  <%= pic_form.file_field :featured_image, accept: "/image/*" %>
-  <%= pic_form.submit "Save pic" %>
-  <% end %>
+<%= form_with model: @user do |form| %>
+  <%= form.label :featured_image, style: "display: block" %>
+  <%= form.file_field :featured_image, accept: "/image/*" %>
+  <%= form.submit "Save pic" %>
 <% end %>
 
 <%= link_to "Edit", user_path, class: "text-blue" %>
@@ -19,7 +18,7 @@ Welcome <%= @user.email_address %>
 <%= link_to "Add", user_path, class: "text-blue" %>
 
 <%= link_to "Delete", 
-@pic, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+@user, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
 <div>update a new pic here</div>
 
 <%= button_to "Log out", home_index_path, method: :get if authenticated? %>
