@@ -3,14 +3,16 @@
 Welcome <%= @user.email_address %>  
 <div><%= link_to "Picture Gallery", user_path, class: "text-red-500" %></div>
 
-<% @user.each do |image| %>
-<%= image_tag (image) %>
+<%= @user.images.each do |image| %>
+  <%= image_tag(image)%>
 <% end %>
 
 <%= form_with model: @user do |form| %>
-  <%= form.label :featured_image, style: "display: block" %>
-  <%= form.file_field :featured_image, accept: "/image/*" %>
-  <%= form.submit "Save pic" %>
+  <%=fields_for :images, @user.images do |images_form|%>
+  <%= images_form.label :featured_image, style: "display: block" %>
+  <%= images_form.file_field :featured_image, accept: "/image/*" %>
+  <%= images_form.submit "Save pic" %>
+  <% end %>
 <% end %>
 
 <%= link_to "Edit", user_path, class: "text-blue" %>
