@@ -2,9 +2,13 @@ Rails.application.routes.draw do
   # get "pics/index"
   # get "users/show"
   get "home/index"
-  resources :sessions
+
+  # post "/users/:id", to: "users#create"
+  post "/users/:id", controller: "users", action: :create
+
+  resources :users
   resources :passwords, param: :token
-  resources :users do
+  resources :sessions do
   end
 
 

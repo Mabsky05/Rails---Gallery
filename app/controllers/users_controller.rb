@@ -5,16 +5,12 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
-    params.expect(:user).permit(images [])
-  end
-
   def set_user
     @user = User.find(params[:id])
   end
 
-  def user_images
-    @user.images = User.images
+  def user
+    @user = User.find(params[:id])
   end
 
   def new
@@ -22,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user.images = User.images.new(image_params)
+    @user.images = User.images(image_params)
     if @user.images.save
       redirect_to @user.image
     else
@@ -30,12 +26,26 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-    @user.images.update(image_params)
-    if @user.images.save
-      redirect_to @user.image
-    else
-      render :new, status: :unprocessable_entity
-    end
+  def user_params
+    params.expect(:user).permit(images [])
   end
+
+
+
+  def user_images
+    @user.images = User.images
+  end
+
+
+
+
+
+  # def update
+  #   @user.images.update(image_params)
+  #   if @user.images.save
+  #     redirect_to @user.image
+  #   else
+  #     render :new, status: :unprocessable_entity
+  #   end
+  # end
 end

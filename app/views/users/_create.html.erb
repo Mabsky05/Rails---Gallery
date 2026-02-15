@@ -1,0 +1,7 @@
+<%= form_with model: @user, method: :post do |form| %>
+  <%=fields_for :images, @user.images do |images_form|%>
+  <%= images_form.label :featured_image, style: "display: block" %>
+  <%= images_form.file_field :featured_image, accept: "/image/*" %>
+  <%= images_form.submit "Save pic" %>
+  <% end %>
+<% end %>

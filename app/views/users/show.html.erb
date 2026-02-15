@@ -4,16 +4,10 @@ Welcome <%= @user.email_address %>
 <div><%= link_to "Picture Gallery", user_path, class: "text-red-500" %></div>
 
 <%= @user.images.each do |image| %>
-  <%= image_tag(image)%>
+  <%= image_tag(image) %>
 <% end %>
 
-<%= form_with model: @user do |form| %>
-  <%=fields_for :images, @user.images do |images_form|%>
-  <%= images_form.label :featured_image, style: "display: block" %>
-  <%= images_form.file_field :featured_image, accept: "/image/*" %>
-  <%= images_form.submit "Save pic" %>
-  <% end %>
-<% end %>
+<%= render "create", user: @user %>
 
 <%= link_to "Edit", user_path, class: "text-blue" %>
 
