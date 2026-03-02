@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
-  # get "pics/index"
-  # get "users/show"
   get "home/index"
-
-  # post "/users/:id", to: "users#create"
   post "/users/:id", controller: "users", action: :create
-
-  resources :users
+  resources :users, only: [ :index, :new, :show, :update, :destroy, :edit ]
   resources :passwords, param: :token
   resources :sessions do
   end

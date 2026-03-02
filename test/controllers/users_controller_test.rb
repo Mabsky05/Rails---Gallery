@@ -11,3 +11,9 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 end
+
+class UsersControllerTest < ActionController::IntegrationTest
+  test "route test" do
+    assert_generates "/users/1", { controller: "users", action: "create", id: "1" }
+  end
+end
