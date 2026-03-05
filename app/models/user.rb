@@ -3,4 +3,5 @@ class User < ApplicationRecord
   has_many :sessions, dependent: :destroy
   has_many_attached :images, dependent: :destroy
   normalizes :email_address, with: ->(e) { e.strip.downcase }
+  # validates  :password, presence: true
 end
