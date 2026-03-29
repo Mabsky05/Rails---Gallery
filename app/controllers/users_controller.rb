@@ -1,20 +1,17 @@
 class UsersController < ApplicationController
   before_action :require_authentication, only: [ :show ]
   before_action :set_user, only: [ :show ]
-
+  wrap_parameters :user, include: [ :email_address, :password, :password_confirmation ]
   def new
     @user.images = User.images.new
   end
 
   def image_params
-    # params.expect(:user).permit(images [])
-    params.expect(user: [ :email_address, :password, :images ])
+    params.expect(user: [ :images, :password ])
   end
 
   def create
     @user = User.create!(user_params)
-    session[:user_id] = @user.id
-    # redirect_to root_path
   end
 
   # def create
@@ -26,11 +23,11 @@ class UsersController < ApplicationController
   #   end
   # end
 
-  private
-
   def user_params
-    params.expect(user: [ :images ])
+    params.require(:user).permit(:username, :password, :email_address, :password_confirmation, :password_digest, :images)
   end
+
+  private
 
   def set_user
     @user = User.find(params[:id])

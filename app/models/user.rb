@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  has_secure_password
-  has_many :sessions, dependent: :destroy
   has_many_attached :images, dependent: :destroy
+  has_secure_password validations: false
+  has_many :sessions, dependent: :destroy
   normalizes :email_address, with: ->(e) { e.strip.downcase }
-  # validates  :password, presence: true
+  # validates :password, presence: true, allow_blank: true
 end
