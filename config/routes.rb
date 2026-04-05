@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-  # get "pics/index"
-  # get "users/show"
   get "home/index"
   resources :sessions
   resources :passwords, param: :token
-  resources :users, only: [ :show ] do
+  resources :users
   resources :pics
-  end
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
