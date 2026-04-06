@@ -1,7 +1,5 @@
-<div>this is one</div>
+<div>Add new pic</div>
 <%= form_with model: @pic do |form| %>
-  <%# ... %>
-
   <div>
     <%= form.label :featured_image, style: "display: block" %>
     <%= form.file_field :featured_image, accept: "image/*" %>
@@ -11,6 +9,4 @@
     <%= form.submit %>
   </div>
 <% end %>
-
-
 <%=link_to "Back", pics_path%>

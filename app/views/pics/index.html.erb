@@ -1,15 +1,14 @@
-<div>
-  <h1 class="font-bold text-4xl">Pics#index</h1>
+<div class="container">
+  <div class="column"><h1 class="font-bold text-4xl">Username index</h1>
+    <h1>Image Gallery [insert carousel/gallery]
+    <% @pics.each do |image| %>
+      <% image_tag (image) %>
+    <% end %>
+    </h1>
+    <h2> <%=link_to "New", new_pic_path %> </h2>
+
+    <h2>Insert edit link here (requires [:id])</h2>
+
+    <h2>Insert delete link here (requires [:id])</h2>
+  </div>
 </div>
-
-<div>
-<h3>User pics</h3>
-<% @pics.each do |image| %>
-  <% image_tag (image) %>
-<% end %>
-</div>
-
-<h3>User pics</h3>
-<%=link_to "new pic", new_pic_path%>
-
-
