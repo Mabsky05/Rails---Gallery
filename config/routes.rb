@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   get "home/index"
-  resources :sessions
+  resources :sessions, param: :id
   resources :passwords, param: :token
-  resources :users
   resources :pics
 
 

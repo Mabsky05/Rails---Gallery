@@ -15,7 +15,7 @@ class PicsController < ApplicationController
   def create
     @pic = Pic.new(pic_params)
     if @pic.save
-      redirect_to @user_path, notice: "uploaded pic"
+      redirect_to pics_path, notice: "uploaded pic"
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,4 +29,9 @@ class PicsController < ApplicationController
     @pic = Pic.destroy(params[:id])
     redirect_to pics_path
   end
+
+  private
+    def pic_params
+      params.expect(pic: [ :id, :name ])
+    end
 end

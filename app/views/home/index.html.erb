@@ -3,10 +3,12 @@
 <% images = Dir[Rails.root.join("app/assets/images/*.{jpg,png,jpeg,gif}")].map { |f| File.basename(f) } %>
 <% random_image = images.sample %>
 
-<div> 
-<h1 class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"><%= Gallery %></h1>
-<div><%= image_tag random_image, class: "h-96 overflow-clip m-16" %></div>
-<div><%= render "sessions/new"%></div>
+<div class="container"> 
+    <div class="col align-items-center">
+        <div class="font-bold row align-content-center">Gallery</div>
+        <div class="w-50"><%= image_tag random_image, class: "img-circle" %></div>
+        <div class="row align-content-center"><%= render "sessions/new"%></div>
+    </div>
 </div>
 
 
