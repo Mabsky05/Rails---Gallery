@@ -32,6 +32,6 @@ class PicsController < ApplicationController
 
   private
     def pic_params
-      params.expect(pic: [ :id, :name ])
+      params.expect(pic: [ :id, :name, :images ])
     end
 end

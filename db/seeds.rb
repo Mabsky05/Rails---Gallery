@@ -11,7 +11,8 @@ User.create!([ {
     }
 ])
 
-
+# <% @pics.each do |image| %> <% image_tag (image)%><% end %> %>
+# <a href="/pics/<%= pic.id%>"><%= pic.name %><% end %></a>
 
 # User.find(1).pics.attach(io: File.open(Rails.root.join("app/assets/images/ninh_binh_mult.png")), filename: "ninh_binh_mult.png")
 # User2 = User.create!(

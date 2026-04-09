@@ -2,8 +2,8 @@
 
 <%= form_with model: @pic do |form| %>
   <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :images, style: "display: block" %>
+    <%= form.file_field :images, accept: "image/*" %>
   </div>
 
   <div>
@@ -11,4 +11,4 @@
   </div>
 <% end %>
 
-<%= link_to "Cancel", pics_path %>
+<%= link_to "Go Back", pics_path %>
