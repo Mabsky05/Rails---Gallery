@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   get "home/index"
+  resources :pics, param: :id
   resources :sessions, param: :id
   resources :passwords, param: :token
-  resources :pics
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

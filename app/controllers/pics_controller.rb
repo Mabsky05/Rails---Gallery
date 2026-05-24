@@ -1,8 +1,5 @@
 class PicsController < ApplicationController
   allow_unauthenticated_access
-  def new
-    @pic = Pic.new
-  end
 
   def index
     @pics = Pic.all
@@ -12,17 +9,21 @@ class PicsController < ApplicationController
     @pic = Pic.find(params[:id])
   end
 
+  def new
+    @pic = Pic.new
+  end
+
   def create
     @pic = Pic.new(pic_params)
     if @pic.save
-      redirect_to pics_path, notice: "uploaded pic"
+      redirect_to @pic, notice: "uploaded pic"
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
-    @pic = Pic.find(params[:id])
+    @pic = Pic.find(pic_params[:id])
   end
 
   def destroy
@@ -32,6 +33,6 @@ class PicsController < ApplicationController
 
   private
     def pic_params
-      params.expect(pic: [ :id, :name, :images ])
+      params.expect(pic: [ :name, :description, :images ])
     end
 end

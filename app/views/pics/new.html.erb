@@ -1,14 +1,10 @@
-<h1>New pic</h1>
-
 <%= form_with model: @pic do |form| %>
   <div>
-    <%= form.label :images, style: "display: block" %>
+    <%= form.label :text, for: "pics" %>
+    <%= form.text_field :name %>
     <%= form.file_field :images, accept: "image/*" %>
   </div>
-
-  <div>
     <%= form.submit %>
-  </div>
+    <%= link_to "Go Back", pics_path %>
 <% end %>
 
-<%= link_to "Go Back", pics_path %>
