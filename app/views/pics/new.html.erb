@@ -1,3 +1,7 @@
+  <%= @pic.images.each do |image| %>
+  <div><%= image_tag url_for (images) %></div>
+  <% end %>
+
 <%= form_with model: @pic do |form| %>
   <div>
     <%= form.label :text, for: "pics" %>
@@ -6,5 +10,6 @@
   </div>
     <%= form.submit %>
     <%= link_to "Go Back", pics_path %>
+
 <% end %>
 
