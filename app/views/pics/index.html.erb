@@ -1,15 +1,23 @@
-<div class="container">
+<div class="container-fluid img-fluid">
   <div class="column">
     <h1 class="font-bold text-4xl">Username index</h1>
     
+<div> Partial <%= render "show", pic: @pic %> </div>
+
+
 <% @pics.each do |pic| %>
 <div><%= pic.id %></div>
-<%=image_tag url_for(pic) %>
-<h2><%=link_to "Show", pic_path(pic) %></h2>
+<div><%= pic.name %></div>
+<div><%= pic.updated_at %></div>
+
+
+<div><%= link_to image_tag url_for(pic), alt: "image placeholder" %></div>
+<div><%=link_to "Show", pic_path(pic) %></div>
 <% end %>
 
 
-      
+
+
     </div>
 
     <h2><%=link_to "New", new_pic_path %></h2>

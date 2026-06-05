@@ -3,6 +3,9 @@ class PicsController < ApplicationController
 
   def index
     @pics = Pic.all
+    html_content = render_to_string(formats: [ :html ], template: "pics/index")
+    pdf = Grover.new(html_content).pdf
+    send_data pdf, filename: "invoice.pdf", type: "application/pdf"
   end
 
   def show
@@ -34,5 +37,9 @@ class PicsController < ApplicationController
   private
     def pic_params
       params.expect(pic: [ :name, :description, :images ])
+    end
+
+    def pics_params
+      params.expect(pics: [ :name, :description, :images ])
     end
 end
