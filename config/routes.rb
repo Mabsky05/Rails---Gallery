@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get "home/index"
   resources :pics, param: :id
   resources :sessions, param: :id
+  resource :registration, only: %i[new create]
   resources :passwords, param: :token
 
 
