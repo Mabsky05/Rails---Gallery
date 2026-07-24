@@ -1,24 +1,24 @@
-<div class="container-fluid img-fluid">
-  <div class="column">
-    <h1 class="font-bold text-4xl">Welcome</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
 
-
-<% @pics.each do |pic| %>
-<div><%= pic.name %></div>
-<div><%= pic.updated_at %></div>
-<div><%=link_to "View Picture", pic_path(pic) %></div>
-<% end %>
+      <h1 class="font-bold text-4xl">Welcome</h1>
+        <% @pics.each do |pic| %>
+        <div><%= pic.name %></div>
+        <div>Uploaded at <%= pic.updated_at %></div>
+        <div><%=link_to "View", pic_path(pic) %></div>
+        <%= button_to "Delete", pic_path(pic), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+        <br>
+        <% end %>
+   
+      <div><%=link_to "New", new_pic_path %></div>
+      <div><%=link_to "Show", pic_path(@pics) %></div>
+      <div><%=link_to "Delete", pic_path(:id), method: :delete %></div>
+      <div><%= button_to "Log out", session_path(:id), method: :delete if authenticated? %></div>
+      
 
     </div>
-
-    <h2><%=link_to "New", new_pic_path %></h2>
-
-    <h2><%=link_to "Show", pic_path(@pics) %></h2>
-
-    <h2><%=link_to "Delete", pic_path(:id), method: :delete %></h2>
-
-    <%= button_to "Log out", session_path(:id), method: :delete if authenticated? %>
-      </div>
   </div>
 </div>
+
 

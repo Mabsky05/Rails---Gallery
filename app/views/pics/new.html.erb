@@ -1,15 +1,22 @@
-  <%= @pic.images.each do |image| %>
-  <div><%= image_tag url_for (images) %></div>
-  <% end %>
 
-<%= form_with model: @pic do |form| %>
-  <div>
-    <%= form.label :text, for: "pics" %>
-    <%= form.text_field :name %>
-    <%= form.file_field :images, accept: "image/*" %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+    <%= form_with model: @pic do |form| %>
+      <label for="email" class="form-label">
+        <%= form.label :text, "Pic name", for: "pics" %>
+        <%= form.text_field :name, class: "form-control" %>
+      </label>
+       <button type="button", class="btn btn-primary"><%= form.file_field :images, accept: "image/*" %></button>
+      <div>
+        <%= form.submit %>
+        <%= link_to "Go Back", pics_path %>
+      </div>
+    <% end %>
+
+    </div>
   </div>
-    <%= form.submit %>
-    <%= link_to "Go Back", pics_path %>
+</div>
 
-<% end %>
 
