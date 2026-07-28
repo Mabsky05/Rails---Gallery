@@ -13,6 +13,10 @@ class PicsController < ApplicationController
     @pic = Pic.new
   end
 
+  def edit
+    @pic = Pic.find(params[:id])
+  end
+
   def create
     @pic = Pic.new(pic_params)
     if @pic.save
@@ -22,8 +26,13 @@ class PicsController < ApplicationController
     end
   end
 
-  def edit
-    @pic = Pic.find(pic_params[:id])
+  def update
+    @pic = Pic.find(params[:id])
+    if @pic.update(pic_params)
+      redirect_to @pic
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -34,9 +43,5 @@ class PicsController < ApplicationController
   private
     def pic_params
       params.expect(pic: [ :name, :description, :images ])
-    end
-
-    def pics_params
-      params.expect(pics: [ :name, :description, :images ])
     end
 end
