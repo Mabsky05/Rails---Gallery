@@ -2,23 +2,28 @@
   <div class="row">
     <div class="col">
 
-      <h1 class="font-bold text-4xl">Welcome</h1>
+      <h1 class="font-bold text-4xl">Photo Gallery</h1>
         <% @pics.each do |pic| %>
+
         <div><%= pic.name %></div>
         <div>Uploaded at <%= pic.updated_at %></div>
+
+      <% if pic.images.attached? %>
+      <%= image_tag pic.images.first, style: "height:100px" %>
+      <% else %>
+      <div>hoho<%= there is no image %></div>
+      <% end %>
+
+
+
         <div><%=link_to "View", pic_path(pic) %></div>
         <%= button_to "Delete", pic_path(pic), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
         <br>
         <% end %>
    
-      <div><%=link_to "New", new_pic_path %></div>
-      <div><%=link_to "Show", pic_path(@pics) %></div>
-      <div><%=link_to "Delete", pic_path(:id), method: :delete %></div>
+      <div><%=link_to "Upload New Photo", new_pic_path %></div>
       <div><%= button_to "Log out", session_path(:id), method: :delete if authenticated? %></div>
-      
 
     </div>
   </div>
 </div>
-
-

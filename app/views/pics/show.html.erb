@@ -1,10 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center"><%= @pic.name %><h1>
 
-<h1><%= @pic.name %><h1>
-<div>
-  <% @pic.images.each do |image| %>
-  <%= image_tag url_for(image) %>
-  <% end %>
+      <div class="mx-auto" style="max-width: 100%">
+        <% @pic.images.each do |image| %>
+        <div class="img-fluid"><%= image_tag url_for(image), class: "d-block mx-auto", 
+        style: "height: 500px; width: auto; object-fit: contain;" %></div>
+        <% end %>
+      </div>
+
+      <div class="text-center">
+      <%= button_to "Delete", @pic, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+      </div>
+
+      <div class="text-center"><%= link_to "Back", pics_path %></div>
+
+    </div>
+  </div>
 </div>
-
-    <%= button_to "Delete", @pic, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
-<%= link_to "Back", pics_path %>
