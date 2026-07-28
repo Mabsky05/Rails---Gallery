@@ -3,15 +3,17 @@
 
 <footer>
   <%= form_with url: sessions_path do |form| %>
+  <label class="form-control-lg">
   <%= form.email_field :email_address, required: true, autofocus: true, 
-  autocomplete: "username", placeholder: "Email address", 
-  value: params[:email_address], maxlength: 30, class: "text-center" %><br>
-  <%= form.password_field :password, 
-  required: true, autocomplete: "current-password", 
-  placeholder: "Password", maxlength: 30, class: "text-center" %>
-  <div class= "font-bold">
+  autocomplete: "username", placeholder: "Email", 
+  value: params[:email_address], maxlength: 30, class: "text-center bg-light" %>
+  <%= form.password_field :password, required: true, autocomplete: "current-password", 
+  placeholder: "Password", maxlength: 30, class: "text-center bg-light text-body" %>
+  </label>
+  <div class= "h5 mb-4">
     <%= form.submit "Sign in" %>
-    <% end %><br>
+    <% end %>
+  </div>
     <%= link_to "Forgot password?", new_password_path %>
   </div>
     <div class="text-muted">
