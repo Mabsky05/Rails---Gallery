@@ -1,18 +1,18 @@
-<div class="container">
+<div class="container-fluid d-flex min-vh-100">
   <div class="row">
     <div class="col">
-      <h1 class="text-center"><%= @pic.name %><h1>
-        <div class="mx-auto" style="max-width: 100%">
-          <% @pic.images.each do |image| %>
-          <div class="img-fluid"><%= image_tag url_for(image), class: "d-block mx-auto", 
-          style: "height: 500px; width: auto; object-fit: contain;" %></div>
-          <% end %>
-        </div>
-      <div class="text-center">
-      <div><%=link_to "Edit", edit_pic_path %></div>
-      <%= button_to "Delete", @pic, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+      <h1 class="text-center mx-auto text-align-center"><%= @pic.name %><h1>
+     </div>
+     <div class="row mx-auto">
+        <% @pic.images.each do |image| %>
+        <div><%= image_tag url_for(image), class: "mx-auto", 
+        style: "height: 80vh; width: auto; object-fit: contain;" %></div>
+        <% end %>
       </div>
-      <div class="text-center"><%= link_to "Back", pics_path %></div>
+      <div class="row text-center">
+        <div><%=link_to "Edit", edit_pic_path %></div>
+        <%= button_to "Delete", @pic, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+        <div class="text-center"><%= link_to "Back", pics_path %></div>
+      </div>
     </div>
-  </div>
 </div>

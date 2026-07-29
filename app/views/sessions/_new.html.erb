@@ -3,18 +3,18 @@
 
 <footer>
   <%= form_with url: sessions_path do |form| %>
-  <label class="form-control-lg">
+  <label>
   <%= form.email_field :email_address, required: true, autofocus: true, 
   autocomplete: "username", placeholder: "Email", 
   value: params[:email_address], maxlength: 30, class: "text-center bg-light" %>
   <%= form.password_field :password, required: true, autocomplete: "current-password", 
   placeholder: "Password", maxlength: 30, class: "text-center bg-light text-body" %>
   </label>
-  <div class= "h5 mb-4">
+  <div class="text-black mb-2">
     <%= form.submit "Sign in" %>
     <% end %>
   </div>
-  <div><%= link_to "Forgot password?", new_password_path %></div>
+  <div class="text-secondary"><%= link_to "Forgot password?", new_password_path, style:"font-size:0.75rem" %></div>
   <div class="text-muted">
   <%= link_to "New User", new_registration_path %>
   </div>

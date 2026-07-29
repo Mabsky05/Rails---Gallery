@@ -4,14 +4,13 @@
 <% random_image = images.sample %>
 
 
-<div class="container-lg" >
-    <div class="row">
+<div class="container-fluid d-flex min-vh-100 align-items-center" >
+    <div class="row w-100 mx-auto">
         <div class="col text-center">
-            <div class="display-4 fw-bold text-center">Gallery</div> 
-            <div class= "mx-auto m-4" style="max-width: 100%">            
-                <div class="img-fluid"><%= image_tag random_image, class: "d-block mx-auto", 
-                style: "height: 500px; width: auto; object-fit: contain;" %></div>  
-            </div>    
+            <div class="display-4 fw-bold text-center">Gallery</div>         
+            <div class=" mx-auto d-flex justify-content-center border border-dark border-2 mt-2 mb-2" style="width: fit-content">
+            <%= image_tag random_image, class: "image-fluid object-fit-cover", 
+            style: "height: 50vh; width: auto" %></div>  
             <div class="text-center"><%= render "sessions/new"%></div>
         </div> 
 </div>
