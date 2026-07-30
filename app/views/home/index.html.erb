@@ -1,8 +1,6 @@
-
 <% # Get all jpg and png images from app/assets/images %>
 <% images = Dir[Rails.root.join("app/assets/images/*.{jpg,png,jpeg,gif}")].map { |f| File.basename(f) } %>
 <% random_image = images.sample %>
-
 
 <div class="container-fluid d-flex min-vh-100 align-items-center" >
     <div class="row w-100 mx-auto">
