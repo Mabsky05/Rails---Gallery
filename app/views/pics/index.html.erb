@@ -13,7 +13,7 @@
   <div class="row align-items-center mb-2">
     <div class="col-4">
           <% if pic.images.attached? %>
-            <%= image_tag pic.images.first, style: "max-height:33vh width-auto" %>
+            <%= image_tag pic.images.first, style: "max-height:33vh width:auto" %>
           <% else %>
             <div><%= there is no image %></div>
           <% end %>
@@ -23,17 +23,17 @@
           <div class="text-muted h6"><%= pic.updated_at %></div>
     </div>
     <div class="col-4 end-0 justify-items:start">      
-          <button type="button" class="btn btn-outline-dark mb-1"><%=link_to "View", pic_path(pic) %></button>
-          <button type="button" class="btn btn-outline-primary mb-1"><%=link_to "Replace", pic_path(pic) %></button>
+          <button type="button" class="btn btn-outline-dark mb-1 fw-bold"><%=link_to "View", pic_path(pic) %></button>
+          <button type="button" class="btn btn-outline-primary mb-1"><%=link_to "Replace", edit_pic_path(pic) %></button>
           <button type="button" class="btn btn-outline-danger mb-1">
-          <%= link_to "Delete", pic_path(pic), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+          <%= link_to "Delete", pic_path(pic), data: { turbo_method: :delete } %>
           </button>
           <% end %>
     </div>
   </div>
   <hr>
   <div class="row">
-      <div><%=link_to "Upload New Photo", new_pic_path %></div>
-      <div><%= button_to "Log out", session_path(:id), method: :delete if authenticated? %></div>
+      <div class="h5"><%=link_to "Upload New Photo", new_pic_path %></div>
+      <div class="h5 text-muted"><%= button_to "Log out", session_path(:id), method: :delete if authenticated? %></div>
   </div>
 </div>

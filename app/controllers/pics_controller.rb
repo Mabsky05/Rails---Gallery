@@ -20,7 +20,7 @@ class PicsController < ApplicationController
   def create
     @pic = Pic.new(pic_params)
     if @pic.save
-      redirect_to @pic, notice: "uploaded pic"
+      redirect_to @pic
     else
       render :new, status: :unprocessable_entity
     end

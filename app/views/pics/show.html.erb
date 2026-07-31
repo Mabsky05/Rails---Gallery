@@ -1,7 +1,7 @@
 <div class="container-fluid d-flex align-items-center justify-content-center">
   <div class="row">
     <div class="col">
-      <h1 class="text-center text-decoration-underline fw-bold h6"><%= @pic.name %><h1>
+      <h1 class="text-center text-decoration-underline fw-bold h6"><%= @pic.name %></h1>
     </div>
   <div class="row mx-auto">
     <div class="col auto m-3">
@@ -12,18 +12,18 @@
         <% end %>
     </div>
   </div>
-  <div class="row text-center">
-      <div class="col">      
+  <div class="row mx-auto justify-content-center">
+      <div class="col-auto">      
           <button type="button" class="btn btn-outline-primary">
             <%=link_to "Replace", edit_pic_path %></div>
           </button>
-      <div class="col text-center">
+      <div class="col-auto">
           <button type="button" class="btn btn-outline-danger">
-            <%= link_to "Delete", @pic, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+            <%= link_to "Delete", @pic, data: { turbo_method: :delete } %>
           </button>
       </div>
-      <div class="col">
-          <div class="text-center"><%= link_to "Back", pics_path %></div>
+      <div class="col-auto">
+          <button type="button" class="btn btn-outline-dark"><%= link_to "Back", pics_path %></button>
       </div>
   </div>
   </div>

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+    <%= form_with model: @pic do |form| %>
+      <label for="email" class="form-label">
+        <%= form.label :text, "Picture name", for: "pics" %>
+        <%= form.text_field :name, class: "form-control" %>
+      </label>
+       <button type="button", class="btn btn-primary"><%= form.file_field :images, accept: "images/*" %></button>
+      <div>
+        <%= form.submit %>
+        <%= link_to "Go Back", pics_path %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+

@@ -1,17 +1,27 @@
-<div class="container">
-  <div class="row">
+<div class="container text-center">
+  <div class="row mb-1 justify-content-center">
     <div class="col">
-    <%= form_with model: @pic do |form| %>
+      <%= form_with model: @pic do |form| %>
       <label for="email" class="form-label">
-        <%= form.label :text, "Pic name", for: "pics" %>
+        <%= form.label :text, "Input new name", for: "pics" %>
         <%= form.text_field :name, class: "form-control" %>
       </label>
-       <button type="button", class="btn btn-primary"><%= form.file_field :images, accept: "images/*" %></button>
-      <div>
-        <%= form.submit %>
-        <%= link_to "Go Back", pics_path %>
-      </div>
-    <% end %>
     </div>
   </div>
+  <div class="row mb-1">
+    <div class="col">
+      <%= form.label :images, "Upload Images", class: "btn btn-primary" %>
+      <%= form.file_field :images, accept: "images/*", class: "hidden-file-input", style: "display: none;" %>
+      <%= form.submit "Update", class: "btn btn-primary" %>
+    </div>
+  </div>
+  <div class="row mb-1">
+    <div class="col">
+      <label class="btn btn-outline-dark fw-bold"> 
+      <%= link_to "Go Back", pics_path %>
+      <% end %>
+      </label>
+    </div>
+  </div> 
 </div>
+
