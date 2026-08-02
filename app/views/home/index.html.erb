@@ -2,10 +2,15 @@
 <% images = Dir[Rails.root.join("app/assets/images/*.{jpg,png,jpeg,gif}")].map { |f| File.basename(f) } %>
 <% random_image = images.sample %>
 
-<div class= "flex-col object-center align-middle justify-center"> 
-<h1 class="font-bold text-red-500 text-center"><%= Gallery %></h1>
-<div class="flex items-center justify-center"><%= image_tag random_image, class: "h-96 overflow-clip m-16" %></div>
-<div class="text-center"><%= render "sessions/new"%></div>
+<div class="container-fluid d-flex min-vh-100 align-items-center" >
+    <div class="row w-100 mx-auto">
+        <div class="col text-center">
+            <div class="display-4 fw-bold text-center">Gallery</div>         
+            <div class=" mx-auto d-flex justify-content-center border border-dark border-2 mt-2 mb-2" style="width: fit-content">
+            <%= image_tag random_image, class: "image-fluid object-fit-cover", 
+            style: "height: 50vh; width: auto" %></div>  
+            <div class="text-center"><%= render "sessions/new"%></div>
+        </div> 
 </div>
 
 

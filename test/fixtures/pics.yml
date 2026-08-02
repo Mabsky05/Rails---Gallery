@@ -2,8 +2,6 @@
 
 one:
   name: Sample Pic
-  user: one
 
 two:
   name: MyString
-  user: one
