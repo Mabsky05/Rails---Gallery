@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
-  # get "pics/index"
-  # get "users/show"
-  get "home/index"
-  resources :sessions
+  resources :pics, param: :id
+  resources :sessions, param: :id
+  resource :registration, only: %i[new create]
   resources :passwords, param: :token
-  resources :users, only: [ :show ] do
-  resources :pics
-  end
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -21,6 +17,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-
-  root "home#index"
+  root to: "home#index"
 end
