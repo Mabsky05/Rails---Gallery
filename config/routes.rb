@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get "home/index"
   resources :pics, param: :id
   resources :sessions, param: :id
   resource :registration, only: %i[new create]
@@ -18,6 +17,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-
-  root "home#index"
+  root to: "home#index"
 end
