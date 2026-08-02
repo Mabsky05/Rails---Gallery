@@ -1,19 +1,39 @@
-<div>
-  <h1 class="font-bold text-4xl">Pics#index</h1>
-  <p>Find me in app/views/pics/index.html.erb</p>
-</div>
-
-<h3>User pics</h3>
-<% @user.pics.each do |image| %>
-  <%= image_tag (image) %>
-<% end %>
-
-<% @pics.each do |pic| %>
-  <div>
-    <%= link_to pic.name, pic %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="fw-bold display-5">Gallery</h1>
+    </div>
+    <hr>
   </div>
-  
-<% end %>
-<p>session[:user_id]: <%= session[:user_id].inspect %></p>
-<%= link_to "Back", user_path(session[:user_id]) if session[:user_id].present? %> 
-
+  <div class="row">
+    <div class="col">
+    <% @pics.each do |pic| %>
+    </div>
+  </div>
+  <div class="row align-items-center mb-2">
+    <div class="col-4">
+          <% if pic.images.attached? %>
+            <%= image_tag pic.images.first, style: "max-height:33vh width:auto" %>
+          <% else %>
+            <div><%= there is no image %></div>
+          <% end %>
+    </div>
+    <div class="col-4 text-break">
+          <div class="text-decoration-underline fw-bold h6"><%= pic.name %></div>
+          <div class="text-muted h6"><%= pic.updated_at %></div>
+    </div>
+    <div class="col-4 end-0 justify-items:start">      
+          <button type="button" class="btn btn-outline-dark mb-1 fw-bold"><%=link_to "View", pic_path(pic) %></button>
+          <button type="button" class="btn btn-outline-primary mb-1"><%=link_to "Replace", edit_pic_path(pic) %></button>
+          <button type="button" class="btn btn-outline-danger mb-1">
+          <%= link_to "Delete", pic_path(pic), data: { turbo_method: :delete } %>
+          </button>
+          <% end %>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+      <div class="h5"><%=link_to "Upload New Photo", new_pic_path %></div>
+      <div class="h5 text-muted"><%= button_to "Log out", session_path(:id), method: :delete if authenticated? %></div>
+  </div>
+</div>

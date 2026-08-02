@@ -11,9 +11,13 @@ User.create!([ {
     }
 ])
 
+# Pic.create!([ { name: "seed_pic" } ])
+# Pic.find(1).images.attach(io: File.open(Rails.root.join("app/assets/images/ninh_binh_mult.png")), filename: "ninh_binh_mult.png")
 
+# <% @pics.each do |image| %> <% image_tag (image)%><% end %> %>
+# <a href="/pics/<%= pic.id%>"><%= pic.name %><% end %></a>
 
-User.find(1).pics.attach(io: File.open(Rails.root.join("app/assets/images/ninh_binh_mult.png")), filename: "ninh_binh_mult.png")
+# User.find(1).pics.attach(io: File.open(Rails.root.join("app/assets/images/ninh_binh_mult.png")), filename: "ninh_binh_mult.png")
 # User2 = User.create!(
 #     email_address: "user1@example.com",
 #     password: "User2"
