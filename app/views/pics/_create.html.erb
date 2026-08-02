@@ -1,0 +1,13 @@
+<%= form_with model: pic do |form| %>
+
+  <div>
+    <%= form.label :images, "input here" %>
+  </div>
+  <div>
+    <%= form.file_field :featured_image, accept: "images/*" %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
