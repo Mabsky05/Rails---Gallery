@@ -67,3 +67,5 @@ group :test do
 end
 
 gem "link_thumbnailer", "~> 3.4"
+
+gem "i18n"
