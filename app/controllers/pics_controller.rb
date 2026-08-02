@@ -1,8 +1,6 @@
 class PicsController < ApplicationController
-  # \/\/\/=delete unauthenticated access later!
-  allow_unauthenticated_access only: %i[ index show]
+  allow_unauthenticated_access
 
-  # index should be made into gallery of photos
   def index
     @pics = Pic.all
   end
@@ -15,17 +13,26 @@ class PicsController < ApplicationController
     @pic = Pic.new
   end
 
+  def edit
+    @pic = Pic.find(params[:id])
+  end
+
   def create
     @pic = Pic.new(pic_params)
     if @pic.save
-      redirect_to @user_path, notice: "uploaded pic"
+      redirect_to @pic
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  def edit
+  def update
     @pic = Pic.find(params[:id])
+    if @pic.update(pic_params)
+      redirect_to @pic
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -35,6 +42,6 @@ class PicsController < ApplicationController
 
   private
     def pic_params
-      params.expect(pic: [ :name, :description, :featured_image ])
+      params.expect(pic: [ :name, :description, :images ])
     end
 end
