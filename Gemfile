@@ -69,3 +69,7 @@ end
 gem "link_thumbnailer", "~> 3.4"
 
 gem "i18n"
+
+gem "dotenv", groups: [ :development, :test ]
+
+gem "parallel", "~> 2.1"

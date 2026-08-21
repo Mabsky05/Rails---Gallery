@@ -434,6 +434,7 @@ DEPENDENCIES
   brakeman
   capybara
   debug
+  dotenv
   grover
   i18n
   image_processing (~> 1.2)
@@ -441,6 +442,7 @@ DEPENDENCIES
   jbuilder
   kamal
   link_thumbnailer (~> 3.4)
+  parallel (~> 2.1)
   propshaft
   puma (>= 5.0)
   rails (~> 8.1.2)
@@ -457,4 +459,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   2.6.2
+   4.0.18
