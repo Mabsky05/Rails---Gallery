@@ -2,7 +2,7 @@
 service: gallery
 
 # Name of the container image.
-image: your-user/gallery
+image: mabsky05/gallery
 
 # Deploy to these servers.
 servers:
