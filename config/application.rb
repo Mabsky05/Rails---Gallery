@@ -16,6 +16,8 @@ module Gallery
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
+    config.hosts << "77.42.22.206"
+    config.ssl_options = { secure_cookies: false }
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -24,5 +26,8 @@ module Gallery
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.action_view.form_with_generates_ids = true
+
+    # Fully disables the strict Origin header validation check against the base_url
+    config.action_controller.forgery_protection_origin_check = false
   end
 end
