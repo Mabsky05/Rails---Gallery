@@ -1,34 +1,35 @@
 # README
 
-Rails - Gallery
+## Gallery App
 
 ## Summary
 
-A basic app for uploading and viewing picture files. 
+A basic Rails CRUD app for uploading, viewing, deleting and viewing picture files. Mobile-first designed.
+Think Instagram, but relatively VERY basic with one database for multiple users.
 
-## Rationale
+## Tech Stack 
 
-The Procreate gallery is gone!
+Ruby 3.4.2
+Rails 8
+Bootstrap 5
+Docker 29
+SQlite as default DB
+Deployed with Kamal to basic Hetzner server
 
-## User Story
+## Description and Use
 
-When I open the site, I am greeted with an array of random photos
-that me / other users have uploaded. 
+Landing page has a header, randomly generated photo, and username/password login. 
+Below the login are additional links for new user and forgotten password. 
 
-When I log in, I see my personal gallery. I then have the option to do the following. 
-    <br>&emsp; Choose to upload and delete photos in my gallery. 
-    <br>&emsp; Select a photo and zoom in/out
-    <br>&emsp; Select a photo and download/share 
-    <br>&emsp; Tick the option for each file to be randomly viewable 
-    in the array of random photos in the site.
-    <br>&emsp; Optional: responsive design.
+Logging in displays an array of images. Each image has a name, date of upload, and View, Replace, and Delete buttons. 
+Clicking on the View goes to a page displaying a larger view of the image. 
+Clicking on Replace allows replacement of the image, and Delete removes image from the database.
 
-TODO:
-<br>Users + Passwords (OK)
-<br>Login/Logout Page (OK)
-<br>Generate and refine Pictures model
-<br>Associate Pictures with User
-<br>Image upload
-<br>Carousel/Gallery format
+At the bottom of the image array are links to logout or upload a new image. 
+
+For testing, use the following credentials to login:
+
+Username: User1@example.com
+Password: User1
 
 
