@@ -10,11 +10,11 @@ Think Instagram, but relatively VERY basic with one database for multiple users.
 
 ## Tech Stack 
 
-Ruby 3.4.2
-Rails 8
-Bootstrap 5
-Docker 29
-SQlite as default DB
+Ruby 3.4.2<br>
+Rails 8<br>
+Bootstrap 5<br>
+Docker 29<br>
+SQlite as default DB<br>
 Deployed with Kamal to basic Hetzner server
 
 ## Description and Use
