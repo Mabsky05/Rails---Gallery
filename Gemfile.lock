@@ -233,7 +233,7 @@ GEM
       ast
       ruby-ll (~> 2.2)
     ostruct (0.6.3)
-    parallel (2.1.0)
+    parallel (2.2.0)
     parser (3.3.12.0)
       ast (~> 2.4.1)
       racc
@@ -442,7 +442,7 @@ DEPENDENCIES
   jbuilder
   kamal
   link_thumbnailer (~> 3.4)
-  parallel (~> 2.1)
+  parallel (~> 2.2)
   propshaft
   puma (>= 5.0)
   rails (~> 8.1.2)
