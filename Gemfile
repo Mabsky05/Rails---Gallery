@@ -72,4 +72,4 @@ gem "i18n"
 
 gem "dotenv", groups: [ :development, :test ]
 
-gem "parallel", "~> 2.1"
+gem "parallel", "~> 2.2"
